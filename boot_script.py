@@ -1,6 +1,9 @@
-turtlebot_number = 1
-turtlebot_editors = ["Daniel", "Jakob"]
+times_booted = 0
 
-print("This it {nr}".format(turtlebot_number))
-print("Welcome to {editor1} and {editor2}'s Turtlebot".format())
+file = open("boot_timer", "w")
+data = file.readline()
+times_booted += 1
+data = "times booted: " + times_booted + "\n"
+file.writelines( data )
+file.close()
 
