@@ -1,9 +1,13 @@
-times_booted = 0
+# import time
 
-file = open("boot_timer", "w")
-data = file.readline()
-times_booted += 1
-data = "times booted: " + times_booted + "\n"
-file.writelines( data )
-file.close()
+# startTime = time.localtime()
+
+# with open("boot_timer", "r") as read_file:
+#     boot_times = int(read_file.readline())
+#     print(boot_times)
+
+with open("boot_timer", "w") as file:
+    file.write("This was done on bootup")
+
+
 
