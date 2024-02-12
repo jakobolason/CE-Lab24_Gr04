@@ -29,6 +29,13 @@ def getAndUpdateColour():
         
         # Output data to the console RGB values
         # Uncomment the line below when you have read the red, green and blue values
+        if max(red, green, blue) == blue:
+            print("the color is blue!")
+        elif max(red, green, blue) == red:
+            print("the color is red!")
+        elif max(red, green, blue) == green:
+            print("the color is green")
+        
         print(f"RGB({red} {green} {blue})")
         
         time.sleep(1) 
