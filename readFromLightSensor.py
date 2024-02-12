@@ -18,11 +18,13 @@ def getAndUpdateColour():
 	# Read the data from the sensor
         # Insert code here
         sensor_data = bus.read_i2c_block_data(0x44,0x09,6)
+
         # Convert the data to green, red and blue int values
         # Insert code here
-        red = sensor_data[1]
-        green = sensor_data[3]
-        blue = sensor_data[5]
+        red = sensor_data[1] + sensor_data[0]/256 # High value of red
+        green = sensor_data[3] + sensor_data[2]/256 # high value of green
+        blue = sensor_data[5] + (sensor_data[4] * 1.65)/256 # High value of blue
+
         # Output data to the console RGB values
         # Uncomment the line below when you have read the red, green and blue values
         if max(red, green, blue) == blue:
