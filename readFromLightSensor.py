@@ -1,4 +1,4 @@
-import smbus
+import smbus2 as smbus
 import time
 
 # Get I2C bus
@@ -17,7 +17,7 @@ def getAndUpdateColour():
     while True:
 	# Read the data from the sensor
         # Insert code here
-        time.sleep(1)
+        time.sleep(10)
         sensor_data = bus.read_i2c_block_data(0x44,0x09,6)
         # Convert the data to green, red and blue int values
         # Insert code here
