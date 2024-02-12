@@ -18,15 +18,12 @@ def getAndUpdateColour():
 	# Read the data from the sensor
         # Insert code here
         time.sleep(1)
-        sensor_data = bus.read_i2c_block_data(0x44, 0x09, 6)
-
-
+        sensor_data = bus.read_i2c_block_data(0x44,0x09,6)
         # Convert the data to green, red and blue int values
         # Insert code here
         red = sensor_data[1]
         green = sensor_data[3]
         blue = sensor_data[5]
-        
         # Output data to the console RGB values
         # Uncomment the line below when you have read the red, green and blue values
         if max(red, green, blue) == blue:
@@ -35,9 +32,7 @@ def getAndUpdateColour():
             print("the color is red!")
         elif max(red, green, blue) == green:
             print("the color is green")
-        
-        print(f"RGB({red} {green} {blue})")
-        
+        print(f"RGB: ({red} {green} {blue})")
         time.sleep(1) 
 
 getAndUpdateColour()
