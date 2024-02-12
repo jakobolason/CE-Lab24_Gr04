@@ -7,7 +7,7 @@ bus = smbus.SMBus(1)
 # ISL29125 address, 0x44(68)
 # Select configuation-1register, 0x01(01)
 # 0x0D(13) Operation: RGB, Range: 360 lux, Res: 16 Bits
-bus.write_byte_data(0x44, 0x01, 0x05)
+bus.write_byte_data(044, 001, 0x05)
 
 time.sleep(1)
 
@@ -17,7 +17,8 @@ def getAndUpdateColour():
     while True:
 	# Read the data from the sensor
         # Insert code here
-        sensor_data = read_i2c_block_data(0x44, 0x01, 0x0D)
+        time.sleep(1)
+        sensor_data = bus.read_i2c_block_data(0x44, 0x09, 6)
 
 
         # Convert the data to green, red and blue int values
@@ -31,7 +32,6 @@ def getAndUpdateColour():
         print("RGB(%d %d %d)" % (red, green, blue))
         print()
         
-        time.sleep(2) 
+        time.sleep(1) 
 
-if "__name__" == "__main__":
-    getAndUpdateColour()
+getAndUpdateColour()
